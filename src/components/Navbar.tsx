@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Menu, X, Sun, Moon, Brain } from "lucide-react";
+import { MenuIcon, XIcon, SunIcon, MoonIcon, BrainIcon } from "./icons";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <Brain className="h-5 w-5 text-white" />
+              <BrainIcon className="h-5 w-5 text-white" />
             </div>
             <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
               AcAIA
@@ -71,7 +71,7 @@ export function Navbar() {
               onClick={toggleDarkMode}
               className="text-gray-700 dark:text-gray-300"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
             </Button>
             <Button variant="outline">Login</Button>
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
@@ -87,7 +87,7 @@ export function Navbar() {
               onClick={toggleDarkMode}
               className="text-gray-700 dark:text-gray-300"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
             </Button>
             <Button
               variant="ghost"
@@ -95,7 +95,7 @@ export function Navbar() {
               onClick={toggleMenu}
               className="text-gray-700 dark:text-gray-300"
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
             </Button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Users, Target, Award, Heart } from "lucide-react";
+import { ArrowLeftIcon, UsersIcon, TargetIcon, AwardIcon, HeartIcon } from "@/components/icons";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="pt-16 sm:pt-20 pb-12 sm:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6 sm:mb-8">
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeftIcon className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
           
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Target className="h-6 w-6 text-white" />
+                  <TargetIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Innovation</CardTitle>
                 <CardDescription>
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Heart className="h-6 w-6 text-white" />
+                  <HeartIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">User First</CardTitle>
                 <CardDescription>
@@ -74,7 +74,7 @@ export default function AboutPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm sm:col-span-2 lg:col-span-1">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Award className="h-6 w-6 text-white" />
+                  <AwardIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Quality</CardTitle>
                 <CardDescription>
@@ -102,7 +102,7 @@ export default function AboutPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gray-50 dark:bg-slate-700">
               <CardHeader className="text-center">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
+                  <UsersIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">AI Team</CardTitle>
                 <CardDescription>
@@ -114,7 +114,7 @@ export default function AboutPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gray-50 dark:bg-slate-700">
               <CardHeader className="text-center">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
+                  <UsersIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Pedagogical Team</CardTitle>
                 <CardDescription>
@@ -126,7 +126,7 @@ export default function AboutPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gray-50 dark:bg-slate-700 sm:col-span-2 lg:col-span-1">
               <CardHeader className="text-center">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
+                  <UsersIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Development Team</CardTitle>
                 <CardDescription>

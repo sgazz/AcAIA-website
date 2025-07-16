@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Brain, BookOpen, Users, Zap, Shield, Star } from "lucide-react";
+import { ArrowRightIcon, BrainIcon, BookOpenIcon, UsersIcon, ZapIcon, ShieldIcon, StarIcon } from "@/components/icons";
 
 export default function HomePage() {
   return (
@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-12 sm:pb-16">
           <div className="text-center">
             <Badge variant="secondary" className="mb-4 text-xs sm:text-sm">
-              <Star className="w-3 h-3 mr-1" />
+              <StarIcon className="w-3 h-3 mr-1" />
               Latest AI Technology
             </Badge>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
@@ -28,7 +28,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm sm:text-base">
                 Start Free
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="text-sm sm:text-base">
                 View Demo
@@ -55,7 +55,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Brain className="h-6 w-6 text-white" />
+                  <BrainIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">AI Chat Assistant</CardTitle>
                 <CardDescription>
@@ -67,7 +67,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <BookOpen className="h-6 w-6 text-white" />
+                  <BookOpenIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Problem Generation</CardTitle>
                 <CardDescription>
@@ -79,7 +79,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Users className="h-6 w-6 text-white" />
+                  <UsersIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Career Guidance</CardTitle>
                 <CardDescription>
@@ -91,7 +91,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Zap className="h-6 w-6 text-white" />
+                  <ZapIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Exam Simulations</CardTitle>
                 <CardDescription>
@@ -103,7 +103,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Shield className="h-6 w-6 text-white" />
+                  <ShieldIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Security & Privacy</CardTitle>
                 <CardDescription>
@@ -115,7 +115,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Star className="h-6 w-6 text-white" />
+                  <StarIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-lg sm:text-xl">Analytics & Tracking</CardTitle>
                 <CardDescription>
@@ -138,7 +138,7 @@ export default function HomePage() {
           </p>
           <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base">
             Start Now
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </section>

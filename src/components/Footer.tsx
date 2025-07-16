@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react";
+import { BrainIcon, MailIcon, PhoneIcon, MapPinIcon, GithubIcon, TwitterIcon, LinkedinIcon } from "./icons";
 import Link from "next/link";
 
 export function Footer() {
@@ -12,7 +12,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Brain className="h-5 w-5 text-white" />
+                <BrainIcon className="h-5 w-5 text-white" />
               </div>
               <span className="text-xl font-bold">AcAIA</span>
               <Badge variant="secondary">Beta</Badge>
@@ -23,13 +23,13 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
-                <Github className="h-5 w-5" />
+                <GithubIcon className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
-                <Twitter className="h-5 w-5" />
+                <TwitterIcon className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
-                <Linkedin className="h-5 w-5" />
+                <LinkedinIcon className="h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -66,15 +66,15 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-gray-300">
-                <Mail className="h-4 w-4" />
+                <MailIcon className="h-4 w-4" />
                 <span>info@acaia.com</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <Phone className="h-4 w-4" />
+                <PhoneIcon className="h-4 w-4" />
                 <span>+381 11 123 456</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <MapPin className="h-4 w-4" />
+                <MapPinIcon className="h-4 w-4" />
                 <span>Belgrade, Serbia</span>
               </div>
             </div>

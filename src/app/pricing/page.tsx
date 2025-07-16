@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Check, Star, Zap, Crown } from "lucide-react";
+import { ArrowLeftIcon, CheckIcon, StarIcon, ZapIcon, CrownIcon } from "@/components/icons";
 import Link from "next/link";
 
 export default function PricingPage() {
@@ -11,7 +11,7 @@ export default function PricingPage() {
       <section className="pt-16 sm:pt-20 pb-12 sm:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6 sm:mb-8">
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeftIcon className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
           
@@ -41,7 +41,7 @@ export default function PricingPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Star className="h-6 w-6 text-white" />
+                  <StarIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-xl sm:text-2xl">Free</CardTitle>
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
@@ -55,19 +55,19 @@ export default function PricingPage() {
               <CardContent>
                 <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>5 AI chat messages per day</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>3 generated problems</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Basic analytics</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Email support</span>
                   </li>
                 </ul>
@@ -86,7 +86,7 @@ export default function PricingPage() {
               </div>
               <CardHeader className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Zap className="h-6 w-6 text-white" />
+                  <ZapIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-xl sm:text-2xl">Pro</CardTitle>
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
@@ -100,27 +100,27 @@ export default function PricingPage() {
               <CardContent>
                 <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Unlimited AI chat messages</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>50 generated problems</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Advanced analytics</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Exam simulations</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Career guidance</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Priority support</span>
                   </li>
                 </ul>
@@ -134,7 +134,7 @@ export default function PricingPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm sm:col-span-2 lg:col-span-1">
               <CardHeader className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Crown className="h-6 w-6 text-white" />
+                  <CrownIcon className="h-6 w-6 text-white" />
                 </div>
                 <CardTitle className="text-xl sm:text-2xl">Enterprise</CardTitle>
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
@@ -148,27 +148,27 @@ export default function PricingPage() {
               <CardContent>
                 <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Everything from Pro plan</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Unlimited generation</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Team management</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>API access</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Dedicated support</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
-                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
                     <span>Custom integrations</span>
                   </li>
                 </ul>

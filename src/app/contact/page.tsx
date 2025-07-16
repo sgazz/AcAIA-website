@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Mail, Phone, MapPin, Send, MessageSquare, Clock } from "lucide-react";
+import { ArrowLeftIcon, MailIcon, PhoneIcon, MapPinIcon, SendIcon, MessageSquareIcon, ClockIcon } from "@/components/icons";
 import Link from "next/link";
 
 export default function ContactPage() {
@@ -35,7 +35,7 @@ export default function ContactPage() {
       <section className="pt-16 sm:pt-20 pb-12 sm:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6 sm:mb-8">
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeftIcon className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
           
@@ -65,7 +65,7 @@ export default function ContactPage() {
             <Card className="border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-xl sm:text-2xl flex items-center">
-                  <MessageSquare className="h-5 w-6 mr-2" />
+                  <MessageSquareIcon className="h-5 w-6 mr-2" />
                   Send us a message
                 </CardTitle>
                 <CardDescription>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                   </div>
                   
                   <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm sm:text-base">
-                    <Send className="h-4 w-4 mr-2" />
+                    <SendIcon className="h-4 w-4 mr-2" />
                     Send Message
                   </Button>
                 </form>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                 <CardContent className="space-y-4 sm:space-y-6">
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                      <MailIcon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Email</h3>
@@ -173,7 +173,7 @@ export default function ContactPage() {
                   
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                      <PhoneIcon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Phone</h3>
@@ -184,7 +184,7 @@ export default function ContactPage() {
                   
                   <div className="flex items-start space-x-3 sm:space-x-4">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                      <MapPinIcon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Address</h3>
@@ -200,7 +200,7 @@ export default function ContactPage() {
               <Card className="border-0 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="text-xl sm:text-2xl flex items-center">
-                    <Clock className="h-5 w-6 mr-2" />
+                    <ClockIcon className="h-5 w-6 mr-2" />
                     Working Hours
                   </CardTitle>
                 </CardHeader>
@@ -253,26 +253,43 @@ export default function ContactPage() {
 
             <Card className="border-0 bg-gray-50 dark:bg-slate-700">
               <CardHeader>
-                <CardTitle className="text-base sm:text-lg">What are your business hours?</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Do you offer technical support?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  We're available Monday to Friday from 9 AM to 6 PM, and Saturday from 10 AM to 4 PM.
+                  Yes, we provide technical support for all our users. 
+                  Pro and Enterprise users get priority support.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-0 bg-gray-50 dark:bg-slate-700">
               <CardHeader>
-                <CardTitle className="text-base sm:text-lg">Do you offer technical support?</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Can I schedule a demo?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Yes, we provide comprehensive technical support for all our services.
+                  Absolutely! Contact us to schedule a personalized demo 
+                  of the AcAIA platform.
                 </p>
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
+            Ready to get started?
+          </h2>
+          <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8">
+            Join thousands of users who already use AcAIA
+          </p>
+          <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base">
+            Start Free Trial
+          </Button>
         </div>
       </section>
     </div>
