@@ -101,7 +101,7 @@ export default function AboutPage() {
               Meet Our Team
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We're a passionate team of educators, engineers, and innovators dedicated to transforming the way we learn.
+              We&apos;re a passionate team of educators, engineers, and innovators dedicated to transforming the way we learn.
             </p>
           </div>
 
