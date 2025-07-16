@@ -44,13 +44,13 @@ export default function ContactPage() {
               Contact
             </Badge>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
-              Let's
+              Let&apos;s
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {" "}Talk
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-              Got a question or an idea? Reach out—we're here to help!
+              Got a question or an idea? Reach out—we&apos;re here to help!
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   Send Us a Message
                 </CardTitle>
                 <CardDescription>
-                  Fill out the form and we'll get back to you as soon as possible.
+                  Fill out the form and we&apos;ll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -266,7 +266,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Absolutely! Contact us and we'll arrange a demo that fits your schedule.
+                  Absolutely! Contact us and we&apos;ll arrange a demo that fits your schedule.
                 </p>
               </CardContent>
             </Card>
