@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const auth_1 = require("@/middleware/auth");
-const validation_1 = require("@/middleware/validation");
-const problemController_1 = require("@/controllers/problemController");
+const auth_1 = require("../middleware/auth");
+const validation_1 = require("../middleware/validation");
+const problemController_1 = require("../controllers/problemController");
 const router = (0, express_1.Router)();
 router.post('/generate', auth_1.auth, (0, validation_1.validate)(validation_1.problemSchemas.generateProblem), problemController_1.generateProblem);
 router.get('/', problemController_1.getProblems);

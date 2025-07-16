@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createProblem = exports.rateProblem = exports.solveProblem = exports.getProblem = exports.getProblems = exports.generateProblem = void 0;
-const Problem_1 = require("@/models/Problem");
-const aiService_1 = require("@/services/aiService");
+const Problem_1 = require("../models/Problem");
+const aiService_1 = require("../services/aiService");
+const mockData_1 = require("../utils/mockData");
 const generateProblem = async (req, res) => {
     try {
         const { subject, difficulty = 'beginner', type = 'multiple-choice', learningObjectives = [] } = req.body;
@@ -56,28 +57,30 @@ exports.generateProblem = generateProblem;
 const getProblems = async (req, res) => {
     try {
         const { page = 1, limit = 10, subject, difficulty, type } = req.query;
-        const query = { isActive: true };
-        if (subject)
-            query.subject = subject;
-        if (difficulty)
-            query.difficulty = difficulty;
-        if (type)
-            query.type = type;
-        const problems = await Problem_1.Problem.find(query)
-            .sort({ createdAt: -1 })
-            .limit(Number(limit))
-            .skip((Number(page) - 1) * Number(limit))
-            .populate('createdBy', 'firstName lastName');
-        const total = await Problem_1.Problem.countDocuments(query);
+        let problems = (0, mockData_1.getMockProblems)();
+        if (subject) {
+            problems = problems.filter(problem => problem.subject === subject);
+        }
+        if (difficulty) {
+            problems = problems.filter(problem => problem.difficulty === difficulty);
+        }
+        if (type) {
+            problems = problems.filter(problem => problem.category === type);
+        }
+        const pageNum = Number(page);
+        const limitNum = Number(limit);
+        const startIndex = (pageNum - 1) * limitNum;
+        const endIndex = startIndex + limitNum;
+        const paginatedProblems = problems.slice(startIndex, endIndex);
         res.json({
             success: true,
             data: {
-                problems,
+                problems: paginatedProblems,
                 pagination: {
-                    page: Number(page),
-                    limit: Number(limit),
-                    total,
-                    pages: Math.ceil(total / Number(limit))
+                    page: pageNum,
+                    limit: limitNum,
+                    total: problems.length,
+                    pages: Math.ceil(problems.length / limitNum)
                 }
             }
         });

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import { Problem } from '@/models/Problem';
-import { aiService } from '@/services/aiService';
+import { Problem } from '../models/Problem';
+import { aiService } from '../services/aiService';
+import { getMockProblems, getRandomAIResponse } from '../utils/mockData';
 
 interface AuthRequest extends Request {
   user?: any;
@@ -72,28 +73,36 @@ export const getProblems = async (req: AuthRequest, res: Response): Promise<void
   try {
     const { page = 1, limit = 10, subject, difficulty, type } = req.query;
 
-    const query: any = { isActive: true };
-    if (subject) query.subject = subject;
-    if (difficulty) query.difficulty = difficulty;
-    if (type) query.type = type;
+    // Koristi mock podatke
+    let problems = getMockProblems();
+    
+    // Filtriranje po parametrima
+    if (subject) {
+      problems = problems.filter(problem => problem.subject === subject);
+    }
+    if (difficulty) {
+      problems = problems.filter(problem => problem.difficulty === difficulty);
+    }
+    if (type) {
+      problems = problems.filter(problem => problem.category === type);
+    }
 
-    const problems = await Problem.find(query)
-      .sort({ createdAt: -1 })
-      .limit(Number(limit))
-      .skip((Number(page) - 1) * Number(limit))
-      .populate('createdBy', 'firstName lastName');
-
-    const total = await Problem.countDocuments(query);
+    // Paginacija
+    const pageNum = Number(page);
+    const limitNum = Number(limit);
+    const startIndex = (pageNum - 1) * limitNum;
+    const endIndex = startIndex + limitNum;
+    const paginatedProblems = problems.slice(startIndex, endIndex);
 
     res.json({
       success: true,
       data: {
-        problems,
+        problems: paginatedProblems,
         pagination: {
-          page: Number(page),
-          limit: Number(limit),
-          total,
-          pages: Math.ceil(total / Number(limit))
+          page: pageNum,
+          limit: limitNum,
+          total: problems.length,
+          pages: Math.ceil(problems.length / limitNum)
         }
       }
     });

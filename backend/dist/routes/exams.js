@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const auth_1 = require("@/middleware/auth");
-const examController_1 = require("@/controllers/examController");
+const auth_1 = require("../middleware/auth");
+const examController_1 = require("../controllers/examController");
 const router = (0, express_1.Router)();
 router.post('/generate', auth_1.auth, examController_1.generateExam);
 router.get('/', examController_1.getExams);

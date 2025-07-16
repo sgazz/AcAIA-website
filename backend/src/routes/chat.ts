@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { auth } from '@/middleware/auth';
-import { validate, chatSchemas } from '@/middleware/validation';
+import { auth } from '../middleware/auth';
+import { validate, chatSchemas } from '../middleware/validation';
 import {
   createChat,
   getChats,
@@ -8,7 +8,7 @@ import {
   sendMessage,
   deleteChat,
   updateChat
-} from '@/controllers/chatController';
+} from '../controllers/chatController';
 
 const router = Router();
 

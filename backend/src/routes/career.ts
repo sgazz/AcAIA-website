@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { auth } from '@/middleware/auth';
+import { auth } from '../middleware/auth';
 import {
   generateCareerAdvice,
   getCareerPaths,
   assessSkills,
   getLearningPath
-} from '@/controllers/careerController';
+} from '../controllers/careerController';
 
 const router = Router();
 

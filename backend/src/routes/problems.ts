@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { auth } from '@/middleware/auth';
-import { validate, problemSchemas } from '@/middleware/validation';
+import { auth } from '../middleware/auth';
+import { validate, problemSchemas } from '../middleware/validation';
 import {
   generateProblem,
   getProblems,
@@ -8,7 +8,7 @@ import {
   solveProblem,
   rateProblem,
   createProblem
-} from '@/controllers/problemController';
+} from '../controllers/problemController';
 
 const router = Router();
 

@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { auth } from '@/middleware/auth';
-import { validate } from '@/middleware/validation';
+import { auth } from '../middleware/auth';
+import { validate } from '../middleware/validation';
 import {
   generateExam,
   getExams,
@@ -8,7 +8,7 @@ import {
   submitExam,
   getExamResults,
   getExamStats
-} from '@/controllers/examController';
+} from '../controllers/examController';
 
 const router = Router();
 

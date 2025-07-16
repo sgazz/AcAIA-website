@@ -10,13 +10,29 @@ const MONGODB_URI = process.env.NODE_ENV === 'production'
 export const connectDatabase = async (): Promise<void> => {
   try {
     if (!MONGODB_URI) {
-      throw new Error('MONGODB_URI nije definisan u environment varijablama');
+      console.log('⚠️ MONGODB_URI nije definisan, preskačem konekciju sa bazom');
+      return;
     }
-    await mongoose.connect(MONGODB_URI);
-    console.log('✅ MongoDB povezan uspešno');
+    
+    // Za development, ne zaustavljaj aplikaciju ako MongoDB nije dostupan
+    if (process.env.NODE_ENV === 'development') {
+      try {
+        await mongoose.connect(MONGODB_URI);
+        console.log('✅ MongoDB povezan uspešno');
+      } catch (error) {
+        console.log('⚠️ MongoDB nije dostupan, aplikacija će raditi bez baze podataka');
+        console.log('💡 Za potpunu funkcionalnost, pokrenite MongoDB ili koristite MongoDB Atlas');
+      }
+    } else {
+      // Za production, zaustavi aplikaciju ako nema baze
+      await mongoose.connect(MONGODB_URI);
+      console.log('✅ MongoDB povezan uspešno');
+    }
   } catch (error) {
     console.error('❌ Greška pri povezivanju sa MongoDB:', error);
-    process.exit(1);
+    if (process.env.NODE_ENV === 'production') {
+      process.exit(1);
+    }
   }
 };
 

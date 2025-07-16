@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import { auth } from '@/middleware/auth';
-import { validate, authSchemas } from '@/middleware/validation';
+import { auth } from '../middleware/auth';
+import { validate, authSchemas } from '../middleware/validation';
 import {
   register,
   login,
   getCurrentUser,
   updateProfile,
   changePassword
-} from '@/controllers/authController';
+} from '../controllers/authController';
 
 const router = Router();
 

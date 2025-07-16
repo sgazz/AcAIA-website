@@ -4,14 +4,14 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import compression from 'compression';
 import dotenv from 'dotenv';
-import { connectDatabase } from '@/config/database';
-import routes from '@/routes';
+import { connectDatabase } from './config/database';
+import routes from './routes';
 
 // Učitavanje environment varijabli
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(helmet()); // Sigurnosni headers
