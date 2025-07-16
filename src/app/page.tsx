@@ -32,14 +32,14 @@ export default function HomePage() {
             </Badge>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight tracking-tight">
-              AcAIA - Your AI Assistant for
+              AcAIA – Your AI Assistant in
               <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                Learning & Development
+                Learning
               </span>
             </h1>
             
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto px-4 leading-relaxed">
-              Revolutionary AI assistant that transforms the way you learn. From intelligent chat to personalized problem generation, from realistic exam simulations to career guidance.
+              Meet an AI assistant that makes learning simpler, smarter, and unforgettable. Chat, practice, prepare for exams, and plan your career—all in one platform.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
@@ -60,10 +60,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-              Why Choose AcAIA?
+              Why Students and Teachers Choose AcAIA
             </h2>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 leading-relaxed">
-              We combine cutting-edge AI technology with proven pedagogical principles to create a truly personalized learning experience that adapts to your unique needs.
+              AcAIA combines cutting‑edge AI with proven learning methods. The result is a truly personal learning experience—built around your pace, your goals, and your style.
             </p>
           </div>
           
@@ -78,7 +78,7 @@ export default function HomePage() {
               </CardHeader>
               <CardContent className="text-center">
                 <CardDescription className="text-base leading-relaxed">
-                  Intelligent conversational AI that understands context and provides personalized, contextual responses to enhance your learning journey.
+                  Ask any question and get clear, instant answers. Our AI understands context and guides you through your learning journey.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -93,22 +93,7 @@ export default function HomePage() {
               </CardHeader>
               <CardContent className="text-center">
                 <CardDescription className="text-base leading-relaxed">
-                  AI-powered creation of customized problems and exercises tailored to your skill level and learning objectives.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            {/* Career Guidance */}
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl hover:bg-white/90 dark:hover:bg-slate-800/90 transform hover:scale-105 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 mx-auto shadow-lg">
-                  <UsersIcon className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-xl sm:text-2xl font-bold">Career Guidance</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <CardDescription className="text-base leading-relaxed">
-                  Personalized career development advice and strategic planning to help you achieve your professional goals.
+                  Practice with tasks designed just for you—challenging enough to help you grow, never overwhelming.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -123,7 +108,22 @@ export default function HomePage() {
               </CardHeader>
               <CardContent className="text-center">
                 <CardDescription className="text-base leading-relaxed">
-                  Realistic exam environments with comprehensive training modules and detailed performance analytics.
+                  Step into realistic exam settings, sharpen your skills under pressure, and receive detailed feedback.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            {/* Career Guidance */}
+            <Card className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl hover:bg-white/90 dark:hover:bg-slate-800/90 transform hover:scale-105 hover:-translate-y-2">
+              <CardHeader className="text-center pb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 mx-auto shadow-lg">
+                  <UsersIcon className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl sm:text-2xl font-bold">Career Guidance</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <CardDescription className="text-base leading-relaxed">
+                  Based on your skills and interests, AcAIA suggests learning paths and career directions that fit you best.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -167,10 +167,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-purple-600/90 to-pink-600/90"></div>
         <div className="relative max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight">
-            Ready to Transform Your Learning?
+            Ready to Make Learning Simple?
           </h2>
           <p className="text-xl sm:text-2xl text-blue-100 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of learners who have already revolutionized their educational journey with AcAIA's cutting-edge AI technology.
+            Join thousands of students and teachers who have already discovered a smarter way to learn with AcAIA.
           </p>
           <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 text-xl px-10 py-6 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group">
             Start Your Journey

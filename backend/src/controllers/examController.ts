@@ -66,12 +66,14 @@ export const getExams = async (req: AuthRequest, res: Response): Promise<void> =
       const exams = await Exam.find(query).sort({ createdAt: -1 }).limit(Number(limit)).skip((Number(page) - 1) * Number(limit));
       const total = await Exam.countDocuments(query);
       res.json({ success: true, data: { exams, pagination: { page: Number(page), limit: Number(limit), total, pages: Math.ceil(total / Number(limit)) } } });
+      return;
     } catch (e) {
       // MOCK
       let filteredExams = mockExams;
       if (subject) filteredExams = filteredExams.filter(exam => exam.subject === subject);
-      if (difficulty) filteredExams = filteredExams.filter(exam => exam.difficulty === difficulty);
+      // Mock exams don't have difficulty property, so we'll skip that filter
       res.json({ success: true, data: { exams: filteredExams, pagination: { page: 1, limit: filteredExams.length, total: filteredExams.length, pages: 1 } } });
+      return;
     }
   } catch (error) {
     res.status(500).json({ success: false, message: 'Greška na serveru. Pokušajte ponovo.' });
@@ -84,13 +86,21 @@ export const getExam = async (req: AuthRequest, res: Response): Promise<void> =>
     const { id } = req.params;
     try {
       const exam = await Exam.findOne({ _id: id, isActive: true });
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+        return;
+      }
       res.json({ success: true, data: { exam } });
+      return;
     } catch (e) {
       // MOCK
       const exam = mockExams.find(e => e._id === id);
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+        return;
+      }
       res.json({ success: true, data: { exam } });
+      return;
     }
   } catch (error) {
     res.status(500).json({ success: false, message: 'Greška na serveru. Pokušajte ponovo.' });
@@ -105,9 +115,15 @@ export const submitExam = async (req: AuthRequest, res: Response): Promise<void>
     const userId = req.user._id;
     try {
       const exam = await Exam.findOne({ _id: id, isActive: true });
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+        return;
+      }
       const existingSubmission = exam.submissions.find(sub => sub.userId.toString() === userId.toString());
-      if (existingSubmission) return res.status(400).json({ success: false, message: 'Već ste položili ovaj ispit.' });
+      if (existingSubmission) {
+        res.status(400).json({ success: false, message: 'Već ste položili ovaj ispit.' });
+        return;
+      }
       let totalPointsEarned = 0;
       const evaluatedAnswers = answers.map((answer: any, index: number) => {
         const question = exam.questions[index];
@@ -120,13 +136,18 @@ export const submitExam = async (req: AuthRequest, res: Response): Promise<void>
       const submission: IExamSubmission = { userId, answers: evaluatedAnswers, totalPoints: totalPointsEarned, score, timeSpent, submittedAt: new Date() };
       await exam.addSubmission(submission);
       res.json({ success: true, message: 'Ispit uspešno predat.', data: { score, totalPoints: exam.totalPoints, pointsEarned: totalPointsEarned, evaluatedAnswers } });
+      return;
     } catch (e) {
       // MOCK
       const exam = mockExams.find(e => e._id === id);
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+        return;
+      }
       const mockScore = Math.floor(Math.random() * 40) + 60; // 60-100
-      const mockPoints = Math.floor((mockScore / 100) * exam.totalPoints);
-      res.json({ success: true, message: 'Ispit uspešno predat (mock mode).', data: { score: mockScore, totalPoints: exam.totalPoints, pointsEarned: mockPoints, evaluatedAnswers: [] } });
+      const mockPoints = Math.floor((mockScore / 100) * 100); // Mock total points
+      res.json({ success: true, message: 'Ispit uspešno predat (mock mode).', data: { score: mockScore, totalPoints: 100, pointsEarned: mockPoints, evaluatedAnswers: [] } });
+      return;
     }
   } catch (error) {
     res.status(500).json({ success: false, message: 'Greška na serveru. Pokušajte ponovo.' });
@@ -140,16 +161,27 @@ export const getExamResults = async (req: AuthRequest, res: Response): Promise<v
     const userId = req.user._id;
     try {
       const exam = await Exam.findOne({ _id: id, isActive: true });
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+        return;
+      }
       const submission = exam.submissions.find(sub => sub.userId.toString() === userId.toString());
-      if (!submission) return res.status(404).json({ success: false, message: 'Niste položili ovaj ispit.' });
+      if (!submission) {
+        res.status(404).json({ success: false, message: 'Niste položili ovaj ispit.' });
+        return;
+      }
       res.json({ success: true, data: { submission, exam: { title: exam.title, subject: exam.subject, totalPoints: exam.totalPoints } } });
+      return;
     } catch (e) {
       // MOCK
       const exam = mockExams.find(e => e._id === id);
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+        return;
+      }
       const mockSubmission = { userId, score: 85, totalPoints: 80, timeSpent: 45, submittedAt: new Date() };
-      res.json({ success: true, data: { submission: mockSubmission, exam: { title: exam.title, subject: exam.subject, totalPoints: exam.totalPoints } } });
+      res.json({ success: true, data: { submission: mockSubmission, exam: { title: exam.title, subject: exam.subject, totalPoints: 100 } } });
+      return;
     }
   } catch (error) {
     res.status(500).json({ success: false, message: 'Greška na serveru. Pokušajte ponovo.' });
@@ -162,7 +194,10 @@ export const getExamStats = async (req: AuthRequest, res: Response): Promise<voi
     const { id } = req.params;
     try {
       const exam = await Exam.findOne({ _id: id, isActive: true });
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen.' });
+        return;
+      }
       const stats = {
         totalSubmissions: exam.submissions.length,
         averageScore: exam.submissions.length > 0 ? exam.submissions.reduce((sum, sub) => sum + sub.score, 0) / exam.submissions.length : 0,
@@ -171,12 +206,17 @@ export const getExamStats = async (req: AuthRequest, res: Response): Promise<voi
         passingRate: exam.submissions.length > 0 ? (exam.submissions.filter(sub => sub.score >= 60).length / exam.submissions.length) * 100 : 0
       };
       res.json({ success: true, data: { stats, exam: { title: exam.title, subject: exam.subject } } });
+      return;
     } catch (e) {
       // MOCK
       const exam = mockExams.find(e => e._id === id);
-      if (!exam) return res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+      if (!exam) {
+        res.status(404).json({ success: false, message: 'Ispit nije pronađen (mock).' });
+        return;
+      }
       const mockStats = { totalSubmissions: 15, averageScore: 78.5, highestScore: 95, lowestScore: 45, passingRate: 80 };
       res.json({ success: true, data: { stats: mockStats, exam: { title: exam.title, subject: exam.subject } } });
+      return;
     }
   } catch (error) {
     res.status(500).json({ success: false, message: 'Greška na serveru. Pokušajte ponovo.' });

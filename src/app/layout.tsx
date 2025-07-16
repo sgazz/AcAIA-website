@@ -7,19 +7,19 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AcAIA - AI Assistant for Learning & Development",
-  description: "Revolutionary AI assistant that transforms the way you learn. From chat to problem generation, from exam simulations to career guidance.",
+  title: "AcAIA – AI Assistant for Learning & Development",
+  description: "An AI assistant that makes learning smarter, simpler, and more personal.",
   keywords: "AI, learning, education, chat, problems, exams, career",
   authors: [{ name: "AcAIA Team" }],
   openGraph: {
-    title: "AcAIA - AI Assistant for Learning & Development",
-    description: "Revolutionary AI assistant that transforms the way you learn.",
+    title: "AcAIA – AI Assistant for Learning & Development",
+    description: "Discover a smarter way to learn with AcAIA.",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "AcAIA - AI Assistant for Learning & Development",
-    description: "Revolutionary AI assistant that transforms the way you learn.",
+    title: "AcAIA – AI Assistant for Learning & Development",
+    description: "An AI assistant that helps students and teachers succeed.",
   },
 };
 

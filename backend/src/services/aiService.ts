@@ -1,12 +1,21 @@
 import OpenAI from 'openai';
 
 class AIService {
-  private openai: OpenAI;
+  private openai: OpenAI | null = null;
+  private isMockMode: boolean = false;
 
   constructor() {
-    this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
-    });
+    const apiKey = process.env.OPENAI_API_KEY;
+    
+    if (apiKey && apiKey !== 'your-openai-api-key' && apiKey !== 'sk-mock-key-for-development') {
+      this.openai = new OpenAI({
+        apiKey: apiKey,
+      });
+      this.isMockMode = false;
+    } else {
+      console.log('🤖 AI Service running in MOCK mode (no OpenAI API key provided)');
+      this.isMockMode = true;
+    }
   }
 
   // Generisanje AI odgovora za chat
@@ -18,7 +27,15 @@ class AIService {
       learningObjective?: string;
     }
   ): Promise<{ content: string; tokens: number }> {
+    if (this.isMockMode) {
+      return this.generateMockChatResponse(messages, context);
+    }
+
     try {
+      if (!this.openai) {
+        throw new Error('OpenAI client not initialized');
+      }
+
       const systemPrompt = this.buildSystemPrompt(context);
       
       const response = await this.openai.chat.completions.create({
@@ -43,6 +60,31 @@ class AIService {
     }
   }
 
+  private generateMockChatResponse(
+    messages: Array<{ role: 'user' | 'assistant' | 'system'; content: string }>,
+    context?: {
+      subject?: string;
+      difficulty?: string;
+      learningObjective?: string;
+    }
+  ): { content: string; tokens: number } {
+    const mockResponses = [
+      "Odlično pitanje! Evo kako možete da rešite ovaj problem...",
+      "Da, to je tačno! Hajde da detaljnije razmotrimo ovu temu.",
+      "Interesantno pitanje. Evo nekoliko koraka koje možete preduzeti...",
+      "Slažem se sa vašim pristupom. Dodatno možete razmotriti...",
+      "To je odličan početak! Sada možemo da nastavimo sa...",
+      "Evo kako možete da primenite ovo u praksi...",
+      "Odlično razmišljanje! Dodatno možete da istražite...",
+      "Da, to je pravi pristup. Sada možemo da dodamo...",
+      "Interesantna perspektiva! Evo kako možete da je razvijete...",
+      "Slažem se! Ovo je korak u pravom smeru. Sada možemo..."
+    ];
+
+    const randomResponse = mockResponses[Math.floor(Math.random() * mockResponses.length)];
+    return { content: randomResponse, tokens: 50 };
+  }
+
   // Generisanje problema
   async generateProblem(params: {
     subject: string;
@@ -59,7 +101,15 @@ class AIService {
     hints: string[];
     estimatedTime: number;
   }> {
+    if (this.isMockMode) {
+      return this.generateMockProblem(params);
+    }
+
     try {
+      if (!this.openai) {
+        throw new Error('OpenAI client not initialized');
+      }
+
       const prompt = this.buildProblemGenerationPrompt(params);
       
       const response = await this.openai.chat.completions.create({
@@ -106,6 +156,47 @@ class AIService {
     }
   }
 
+  private generateMockProblem(params: {
+    subject: string;
+    difficulty: 'beginner' | 'intermediate' | 'advanced';
+    type: 'multiple-choice' | 'open-ended' | 'coding' | 'essay';
+    learningObjectives: string[];
+  }): {
+    title: string;
+    description: string;
+    question: string;
+    options?: string[];
+    correctAnswer?: string;
+    explanation?: string;
+    hints: string[];
+    estimatedTime: number;
+  } {
+    const mockProblems = {
+      'multiple-choice': {
+        title: `Osnovni problem iz ${params.subject}`,
+        description: `Edukativni problem za ${params.difficulty} nivo`,
+        question: `Koji je osnovni koncept u oblasti ${params.subject}?`,
+        options: ['Opcija A', 'Opcija B', 'Opcija C', 'Opcija D'],
+        correctAnswer: 'Opcija A',
+        explanation: 'Opcija A je tačna jer predstavlja osnovni koncept.',
+        hints: ['Razmislite o osnovnim principima', 'Pogledajte definicije'],
+        estimatedTime: 10
+      },
+      'open-ended': {
+        title: `Analitički problem iz ${params.subject}`,
+        description: `Problem koji zahteva analizu za ${params.difficulty} nivo`,
+        question: `Objasnite kako funkcioniše ${params.subject} u praksi.`,
+        correctAnswer: 'Očekuje se detaljno objašnjenje.',
+        explanation: 'Ovo pitanje testira razumevanje koncepta.',
+        hints: ['Koristite konkretne primere', 'Povežite teoriju i praksu'],
+        estimatedTime: 15
+      }
+    };
+
+    const problemType = params.type === 'coding' || params.type === 'essay' ? 'open-ended' : params.type;
+    return mockProblems[problemType as keyof typeof mockProblems];
+  }
+
   // Generisanje simulacije ispita
   async generateExamSimulation(params: {
     subject: string;
@@ -125,7 +216,15 @@ class AIService {
     totalPoints: number;
     estimatedDuration: number;
   }> {
+    if (this.isMockMode) {
+      return this.generateMockExamSimulation(params);
+    }
+
     try {
+      if (!this.openai) {
+        throw new Error('OpenAI client not initialized');
+      }
+
       const prompt = this.buildExamSimulationPrompt(params);
       
       const response = await this.openai.chat.completions.create({
@@ -168,6 +267,46 @@ class AIService {
     }
   }
 
+  private generateMockExamSimulation(params: {
+    subject: string;
+    difficulty: 'beginner' | 'intermediate' | 'advanced';
+    numberOfQuestions: number;
+    duration: number;
+  }): {
+    title: string;
+    description: string;
+    questions: Array<{
+      question: string;
+      type: 'multiple-choice' | 'open-ended';
+      options?: string[];
+      correctAnswer?: string;
+      points: number;
+    }>;
+    totalPoints: number;
+    estimatedDuration: number;
+  } {
+    const questions = [];
+    const pointsPerQuestion = Math.floor(100 / params.numberOfQuestions);
+
+    for (let i = 1; i <= params.numberOfQuestions; i++) {
+      questions.push({
+        question: `Pitanje ${i}: Osnovni koncept iz ${params.subject}`,
+        type: 'multiple-choice' as const,
+        options: ['Opcija A', 'Opcija B', 'Opcija C', 'Opcija D'],
+        correctAnswer: 'Opcija A',
+        points: pointsPerQuestion
+      });
+    }
+
+    return {
+      title: `Simulacija ispita iz ${params.subject}`,
+      description: `Ispit za ${params.difficulty} nivo sa ${params.numberOfQuestions} pitanja`,
+      questions,
+      totalPoints: 100,
+      estimatedDuration: params.duration
+    };
+  }
+
   // Generisanje karijernog saveta
   async generateCareerAdvice(params: {
     currentSkills: string[];
@@ -185,7 +324,15 @@ class AIService {
     }>;
     nextSteps: string[];
   }> {
+    if (this.isMockMode) {
+      return this.generateMockCareerAdvice(params);
+    }
+
     try {
+      if (!this.openai) {
+        throw new Error('OpenAI client not initialized');
+      }
+
       const prompt = this.buildCareerAdvicePrompt(params);
       
       const response = await this.openai.chat.completions.create({
@@ -225,6 +372,51 @@ class AIService {
       console.error('Greška pri generisanju karijernog saveta:', error);
       throw new Error('Greška pri generisanju karijernog saveta');
     }
+  }
+
+  private generateMockCareerAdvice(params: {
+    currentSkills: string[];
+    interests: string[];
+    experience: string;
+    goals: string;
+  }): {
+    analysis: string;
+    recommendations: string[];
+    learningPath: Array<{
+      skill: string;
+      priority: 'high' | 'medium' | 'low';
+      estimatedTime: string;
+      resources: string[];
+    }>;
+    nextSteps: string[];
+  } {
+    return {
+      analysis: `Na osnovu vaših veština (${params.currentSkills.join(', ')}) i interesa (${params.interests.join(', ')}), vidim da imate solidnu osnovu. Vaše iskustvo u ${params.experience} je odličan početak za postizanje cilja: ${params.goals}.`,
+      recommendations: [
+        'Nastavite sa razvojem postojećih veština',
+        'Istražite nove oblasti koje vas interesuju',
+        'Povežite se sa profesionalcima iz vaše oblasti'
+      ],
+      learningPath: [
+        {
+          skill: 'Napredne veštine',
+          priority: 'high' as const,
+          estimatedTime: '3-6 meseci',
+          resources: ['Online kursevi', 'Praktični projekti', 'Mentorstvo']
+        },
+        {
+          skill: 'Soft skills',
+          priority: 'medium' as const,
+          estimatedTime: '6-12 meseci',
+          resources: ['Komunikacioni kursevi', 'Timski projekti', 'Volontiranje']
+        }
+      ],
+      nextSteps: [
+        'Kreirajte plan učenja',
+        'Postavite kratkoročne ciljeve',
+        'Pratite napredak'
+      ]
+    };
   }
 
   private buildSystemPrompt(context?: {

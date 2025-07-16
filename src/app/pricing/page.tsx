@@ -20,14 +20,13 @@ export default function PricingPage() {
               Pricing
             </Badge>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
-              Simple and
+              Clear Plans. No
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {" "}Transparent Pricing
+                {" "}Surprises.
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-              Choose the plan that best fits your needs. 
-              All plans include a free trial.
+              Pick the plan that fits your needs. Every plan starts with a free trial.
             </p>
           </div>
         </div>
@@ -45,11 +44,11 @@ export default function PricingPage() {
                 </div>
                 <CardTitle className="text-xl sm:text-2xl">Free</CardTitle>
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  €0
+                  $0
                   <span className="text-base sm:text-lg font-normal text-gray-600 dark:text-gray-300">/month</span>
                 </div>
                 <CardDescription>
-                  Perfect for beginners who want to try the platform
+                  A great way to start exploring
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -90,11 +89,11 @@ export default function PricingPage() {
                 </div>
                 <CardTitle className="text-xl sm:text-2xl">Pro</CardTitle>
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  €19
+                  $19
                   <span className="text-base sm:text-lg font-normal text-gray-600 dark:text-gray-300">/month</span>
                 </div>
                 <CardDescription>
-                  For active learners who want advanced features
+                  Our most popular plan
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -138,30 +137,22 @@ export default function PricingPage() {
                 </div>
                 <CardTitle className="text-xl sm:text-2xl">Enterprise</CardTitle>
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  €49
+                  Custom
                   <span className="text-base sm:text-lg font-normal text-gray-600 dark:text-gray-300">/month</span>
                 </div>
                 <CardDescription>
-                  For institutions and teams who want all features
+                  For large teams and organizations
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   <li className="flex items-center text-sm sm:text-base">
                     <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
-                    <span>Everything from Pro plan</span>
+                    <span>Everything in Pro</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
                     <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
-                    <span>Unlimited generation</span>
-                  </li>
-                  <li className="flex items-center text-sm sm:text-base">
-                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
-                    <span>Team management</span>
-                  </li>
-                  <li className="flex items-center text-sm sm:text-base">
-                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
-                    <span>API access</span>
+                    <span>Custom integrations</span>
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
                     <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
@@ -169,11 +160,19 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-center text-sm sm:text-base">
                     <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
-                    <span>Custom integrations</span>
+                    <span>Advanced security</span>
+                  </li>
+                  <li className="flex items-center text-sm sm:text-base">
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <span>Custom branding</span>
+                  </li>
+                  <li className="flex items-center text-sm sm:text-base">
+                    <CheckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
+                    <span>API access</span>
                   </li>
                 </ul>
                 <Button variant="outline" className="w-full text-sm sm:text-base">
-                  Contact Us
+                  Contact Sales
                 </Button>
               </CardContent>
             </Card>
@@ -188,19 +187,16 @@ export default function PricingPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-              Answers to common questions about our pricing
-            </p>
           </div>
 
           <div className="space-y-4 sm:space-y-8">
             <Card className="border-0 bg-gray-50 dark:bg-slate-700">
               <CardHeader>
-                <CardTitle className="text-base sm:text-lg">Can I change my plan?</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Can I change plans anytime?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Yes, you can change your plan at any time. Changes take effect immediately.
+                  Yes. You can upgrade or downgrade at any time, and changes apply instantly.
                 </p>
               </CardContent>
             </Card>
@@ -211,7 +207,7 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Yes, all plans include a 14-day free trial.
+                  Yes, every plan includes a 14‑day free trial. No credit card required.
                 </p>
               </CardContent>
             </Card>
@@ -222,7 +218,7 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  You can cancel your subscription at any time. You'll continue to have access until the end of your billing period.
+                  You can cancel anytime. Your access continues until the end of your billing period.
                 </p>
               </CardContent>
             </Card>
@@ -234,10 +230,10 @@ export default function PricingPage() {
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Ready to get started?
+            Ready to Get Started?
           </h2>
           <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8">
-            Join thousands of users who already use AcAIA
+            Thousands of users already trust AcAIA. Join them today!
           </p>
           <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base">
             Start Free Trial

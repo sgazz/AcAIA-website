@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
             
             <p className="text-gray-300 mb-8 max-w-lg leading-relaxed text-lg">
-              Revolutionary AI assistant that transforms the way you learn. We combine cutting-edge technology with proven pedagogical principles to create truly personalized learning experiences.
+              AcAIA helps students and teachers learn smarter. Powered by the latest AI technology and proven methods—all in one platform.
             </p>
             
             <div className="flex space-x-4">
@@ -111,7 +111,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Contact
+              Contact Info
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-gray-300 group">

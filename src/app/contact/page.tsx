@@ -44,14 +44,13 @@ export default function ContactPage() {
               Contact
             </Badge>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
-              Get in
+              Let's
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {" "}Touch
+                {" "}Talk
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-              Have questions? Want to learn more about AcAIA? 
-              Feel free to contact us - we're here to help!
+              Got a question or an idea? Reach out—we're here to help!
             </p>
           </div>
         </div>
@@ -66,10 +65,10 @@ export default function ContactPage() {
               <CardHeader>
                 <CardTitle className="text-xl sm:text-2xl flex items-center">
                   <MessageSquareIcon className="h-5 w-6 mr-2" />
-                  Send us a message
+                  Send Us a Message
                 </CardTitle>
                 <CardDescription>
-                  Fill out the form below and we'll respond as soon as possible
+                  Fill out the form and we'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -77,7 +76,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        Full Name *
+                        Name *
                       </label>
                       <input
                         type="text"
@@ -138,7 +137,7 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                      placeholder="Describe your question or message..."
+                      placeholder="Write your question or comment here..."
                     />
                   </div>
                   
@@ -156,7 +155,7 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="text-xl sm:text-2xl">Contact Information</CardTitle>
                   <CardDescription>
-                    Here's how you can reach us
+                    You can also reach us here:
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4 sm:space-y-6">
@@ -167,7 +166,6 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Email</h3>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">info@acaia.com</p>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">support@acaia.com</p>
                     </div>
                   </div>
                   
@@ -178,7 +176,6 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Phone</h3>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">+381 11 123 456</p>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">+381 60 123 456</p>
                     </div>
                   </div>
                   
@@ -189,8 +186,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Address</h3>
                       <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                        Knez Mihailova 1<br />
-                        11000 Belgrade, Serbia
+                        Belgrade, Serbia
                       </p>
                     </div>
                   </div>
@@ -203,16 +199,19 @@ export default function ContactPage() {
                     <ClockIcon className="h-5 w-6 mr-2" />
                     Working Hours
                   </CardTitle>
+                  <CardDescription>
+                    When we're available:
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 sm:space-y-3">
                     <div className="flex justify-between text-sm sm:text-base">
-                      <span className="text-gray-600 dark:text-gray-300">Monday - Friday</span>
-                      <span className="font-semibold text-gray-900 dark:text-white">09:00 - 18:00</span>
+                      <span className="text-gray-600 dark:text-gray-300">Monday – Friday</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">9:00 AM – 6:00 PM</span>
                     </div>
                     <div className="flex justify-between text-sm sm:text-base">
                       <span className="text-gray-600 dark:text-gray-300">Saturday</span>
-                      <span className="font-semibold text-gray-900 dark:text-white">10:00 - 16:00</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">10:00 AM – 2:00 PM</span>
                     </div>
                     <div className="flex justify-between text-sm sm:text-base">
                       <span className="text-gray-600 dark:text-gray-300">Sunday</span>
@@ -245,8 +244,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  We respond to most messages within 24 hours. For urgent cases, 
-                  you can contact us by phone.
+                  We respond within 24 hours. For urgent cases, please call us.
                 </p>
               </CardContent>
             </Card>
@@ -257,8 +255,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Yes, we provide technical support for all our users. 
-                  Pro and Enterprise users get priority support.
+                  Yes, all users get technical support. Pro and Enterprise users receive priority.
                 </p>
               </CardContent>
             </Card>
@@ -269,8 +266,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Absolutely! Contact us to schedule a personalized demo 
-                  of the AcAIA platform.
+                  Absolutely! Contact us and we'll arrange a demo that fits your schedule.
                 </p>
               </CardContent>
             </Card>
@@ -282,10 +278,10 @@ export default function ContactPage() {
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Ready to get started?
+            Ready to Get Started?
           </h2>
           <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8">
-            Join thousands of users who already use AcAIA
+            Join thousands of users already enjoying AcAIA.
           </p>
           <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 text-sm sm:text-base">
             Start Free Trial
