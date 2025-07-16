@@ -200,7 +200,7 @@ export default function ContactPage() {
                     Working Hours
                   </CardTitle>
                   <CardDescription>
-                    When we're available:
+                    When we&apos;re available:
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
